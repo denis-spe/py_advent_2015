@@ -16,7 +16,6 @@ class DayAbs:
 
     def __init__(self, inputs: Input):
         self.__inputs: Input = inputs
-        self.__test_input = None
 
     def inputs(self) -> str:
         """

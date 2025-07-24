@@ -36,6 +36,15 @@ class TestDayOne(unittest.TestCase):
         self.assertEqual(testCase8, -3)
         self.assertEqual(testCase9, -3)
 
+    def test_part_two_sample_input(self):
+
+        # Test case
+        testCase1 = DayOne(inputs=")").part_two()
+        testCase2 = DayOne(inputs="()())").part_two()
+
+        self.assertEqual(testCase1, 1)
+        self.assertEqual(testCase2, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
