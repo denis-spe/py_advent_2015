@@ -10,7 +10,7 @@ class Stream:
         self.__inputs = inputs
 
     def map_(self, func: Callable):
-        self.__inputs = list(map(func, self.__inputs))
+        self.__inputs = map(func, self.__inputs)
         return self
 
     def tolist(self):

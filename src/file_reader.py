@@ -9,11 +9,9 @@ class FileReader:
 
     @property
     def data(self):
-        current_dir = os.path.dirname(__file__)
-        input_file = os.path.join(current_dir, self.__path)
-        
+
         contents = ''
-        with open(input_file, 'r') as file:
+        with open(self.__path, 'r') as file:
             contents += file.read()
         return contents.strip()
 

@@ -36,7 +36,7 @@ class DayOne(DayAbs):
         """
 
         return (
-            Stream(self.inputs())
+            Stream(self.inputs)
             .tolist()
             .map_(lambda x: self.instruction[x])
             .sum_()
@@ -66,7 +66,7 @@ class DayOne(DayAbs):
         """
 
         return (
-            Stream(self.inputs())
+            Stream(self.inputs)
             .tolist()
             .map_(lambda x: self.instruction[x])
             .flat_map_(self.santa_position)

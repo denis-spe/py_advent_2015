@@ -9,9 +9,9 @@ from src.file_reader import FileReader
 
 class TestFileReader(unittest.TestCase):
     def setUp(self):
-        self.file_reader = FileReader(
-            'day1/input.txt'
-            )
+        folder_path = os.path.dirname(__file__)
+        path = os.path.join(folder_path, "input.txt")
+        self.file_reader = FileReader(path)
 
     def test_data(self):
         self.assertIn('()', self.file_reader.data)

@@ -1,6 +1,6 @@
 # Bless be the LORD of host
 from src.file_reader import FileReader
-from src.types import Input, SAMPLE_INPUT
+from src.types import Input
 import os
 
 class InvalidInput(Exception):
@@ -17,11 +17,15 @@ class DayAbs:
     def __init__(self, inputs: Input):
         self.__inputs: Input = inputs
 
+    @property
     def inputs(self) -> str:
         """
         Represents file contents or string content for testing and submission.
         """
         if self.__inputs is not None:
+            if self.__inputs.startswith("day"):
+                self.__inputs = os.path.join(os.path.dirname(__file__), self.__inputs)
+
             if os.path.isfile(self.__inputs):
                 return FileReader(self.__inputs).data
             else:
