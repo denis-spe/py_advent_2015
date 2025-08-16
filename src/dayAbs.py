@@ -1,7 +1,9 @@
 # Bless be the LORD of host
+import os
+
 from src.file_reader import FileReader
 from src.types import Input
-import os
+
 
 class InvalidInput(Exception):
     def __init__(self, message: str = "Invalid input") -> None:
@@ -24,7 +26,7 @@ class DayAbs:
         """
         if self.__inputs is not None:
             if self.__inputs.startswith("day"):
-                self.__inputs = os.path.join(os.path.dirname(__file__), self.__inputs)
+                self.__inputs = os.path.join(os.path.dirname(__file__), "advent2015", self.__inputs)
 
             if os.path.isfile(self.__inputs):
                 return FileReader(self.__inputs).data

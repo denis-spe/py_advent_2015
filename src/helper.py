@@ -26,7 +26,7 @@ class Stream:
 
     def flat_map_(self, func: Callable):
         self.__inputs = func(self.__inputs)
-        return self.__inputs
+        return self
 
     def show_result(self):
         return self.__inputs

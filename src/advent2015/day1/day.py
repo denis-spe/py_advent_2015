@@ -9,11 +9,11 @@ Collect stars by helping Santa solve puzzles. Two puzzles will be made available
 the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
 """
 
+from typing import List
+
 from src.dayAbs import DayAbs
 from src.helper import Stream
 from src.types import Input
-from typing import List
-
 
 
 class DayOne(DayAbs):
@@ -70,4 +70,5 @@ class DayOne(DayAbs):
             .tolist()
             .map_(lambda x: self.instruction[x])
             .flat_map_(self.santa_position)
+            .show_result()
         )

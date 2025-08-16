@@ -6,12 +6,13 @@ The elves are running low on wrapping paper, and so they need to submit an order
 dimensions (length l, width w, and height h) of each present, and only want to order exactly as much as they need.
 """
 from functools import reduce
+from typing import Tuple
 
 # Import libraries
 from src.dayAbs import DayAbs
 from src.helper import Stream
 from src.types import DIM
-from typing import Tuple
+
 
 def shortest_distance(dimensions: DIM) -> Tuple[int, int]:
     first_val, second_val, third_val = dimensions
@@ -23,6 +24,7 @@ def shortest_distance(dimensions: DIM) -> Tuple[int, int]:
 
     return min(lst, key=sum)
 
+
 class SquareFeetSlack:
     def __init__(self, dimensions: DIM):
         distances = shortest_distance(dimensions)
@@ -30,6 +32,7 @@ class SquareFeetSlack:
 
     def __add__(self, other) -> int:
         return self.final_result + other.final_result
+
 
 class SquareFeetWrappingPaper:
     def __init__(self, dimensions: DIM):
@@ -39,6 +42,7 @@ class SquareFeetWrappingPaper:
 
     def __add__(self, other) -> int:
         return self.final_result + other.final_result
+
 
 class RibbonFeetToWrapPresent:
     def __init__(self, dimensions: DIM):
@@ -57,7 +61,6 @@ class RibbonFeetForTheBow:
         return self.final_result + other.final_result
 
 
-
 class DayTwo(DayAbs):
 
     def part_one(self):
@@ -69,10 +72,10 @@ class DayTwo(DayAbs):
         """
         return (
             Stream(self.inputs.split("\n"))
-                .map_(lambda x: x.strip().split('x'))
-                .map_(lambda x: tuple(int(value) for value in x))
-                .map_(lambda x: SquareFeetWrappingPaper(x) + SquareFeetSlack(x))
-                .sum_()
+            .map_(lambda x: x.strip().split('x'))
+            .map_(lambda x: tuple(int(value) for value in x))
+            .map_(lambda x: SquareFeetWrappingPaper(x) + SquareFeetSlack(x))
+            .sum_()
         )
 
     def part_two(self):
@@ -88,8 +91,8 @@ class DayTwo(DayAbs):
         """
         return (
             Stream(self.inputs.split("\n"))
-                .map_(lambda x: x.strip().split('x'))
-                .map_(lambda x: tuple(int(value) for value in x))
-                .map_(lambda x: RibbonFeetToWrapPresent(x) + RibbonFeetForTheBow(x))
-                .sum_()
+            .map_(lambda x: x.strip().split('x'))
+            .map_(lambda x: tuple(int(value) for value in x))
+            .map_(lambda x: RibbonFeetToWrapPresent(x) + RibbonFeetForTheBow(x))
+            .sum_()
         )

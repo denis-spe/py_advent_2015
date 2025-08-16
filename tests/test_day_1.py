@@ -6,15 +6,12 @@
 
 # Import libraries.
 import unittest
-from src.day1.day import DayOne
+
+from src.advent2015.day1.day import DayOne
 from tests.day_test_abs import DayTestAbs
 
 
 class TestDayOne(DayTestAbs):
-    def setUp(self):
-        INPUT_PATH = "day1/input.txt"
-        self.day1 = DayOne(inputs=INPUT_PATH)
-
     def test_part_one_sample_input(self):
 
         # Test case

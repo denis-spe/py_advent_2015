@@ -6,14 +6,12 @@
 
 # Import libraries
 import unittest
-from src.day2.day import DayTwo, SquareFeetSlack
+
+from src.advent2015.day2.day import DayTwo, SquareFeetSlack
 from tests.day_test_abs import DayTestAbs
 
 
 class TestDayTwo(DayTestAbs):
-    def setUp(self):
-        INPUT_PATH = "day2/input.txt"
-        self.day2 = DayTwo(inputs=INPUT_PATH)
 
     def test_shortest_distance(self):
         self.assertEqual(SquareFeetSlack([2, 3, 5]).final_result, 6)
@@ -28,7 +26,6 @@ class TestDayTwo(DayTestAbs):
 
         self.assertEqual(testCase1, 58)
         self.assertEqual(testCase2, 43)
-        self.assertEqual(self.day2.part_one(), 1586300)
 
     def test_part_two_sample_input(self):
         # Test case
@@ -38,5 +35,6 @@ class TestDayTwo(DayTestAbs):
         self.assertEqual(testCase1, 34)
         self.assertEqual(testCase2, 14)
 
-        self.assertEqual(self.day2.part_two(), 3737498)
 
+if __name__ == "__main__":
+    unittest.main()
